@@ -67,39 +67,42 @@ class ImageAvatar extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-   return Stack(
-     children: [
-      Container(
-        margin: const EdgeInsets.all(5),
-        padding: const EdgeInsets.all(5),
-        width: 100,
-        height: 100,
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.yellow,
-         ),
-        ),
-             
-       Container(
-        height: 100,
-        width: 100,
-        margin: const EdgeInsets.all(5),
-        padding: const EdgeInsets.all(4),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.black,
-          border: Border.all(
-             color: Colors.green,
-            width: 3,
+   return SizedBox(
+    height: 100,
+     child: Stack(
+       children: [
+        Container(
+          margin: const EdgeInsets.all(5),
+          padding: const EdgeInsets.all(5),
+          width: 100,
+          height: 100,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.yellow,
+           ),
           ),
-          ),
-        child: CircleAvatar(
-          backgroundImage: AssetImage(fotoImage),
-         ),
-       )
-
-    ],
-    );
+               
+         Container(
+          height: 100,
+          width: 100,
+          margin: const EdgeInsets.all(5),
+          padding: const EdgeInsets.all(4),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.black,
+            border: Border.all(
+               color: Colors.green,
+              width: 3,
+            ),
+            ),
+          child: CircleAvatar(
+            backgroundImage: AssetImage(fotoImage),
+           ),
+         )
+   
+      ],
+      ),
+   );
 
    
   }
