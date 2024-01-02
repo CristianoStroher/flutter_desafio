@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -45,48 +46,62 @@ class HomePage extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            width: 80,
-            margin: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                          color: Colors.transparent, // Cor do contorno
-                          width: 1,
-                          style: BorderStyle.solid
-                          // Espessura do contorno
-                          ),
-                      gradient: const LinearGradient(colors: [
-                        Colors.red,
-                        Colors.purple,
-                      ])),
-                  child: const CircleAvatar(
-                    radius: 40,
-                    backgroundColor: Colors.black,
-                    child: CircleAvatar(
-                      radius: 34,
-                      backgroundImage: AssetImage('assets/images/foto_be.jpg'),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 0.0),
-                Text(
-                  'Nome $index',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                  ),
-                ),
-              ],
-            ),
-          );
+          
+          return const ImageAvatar(fotoImage: 'assets/images/foto_be.jpg', nameImage: 'Cristiano Stroher');
+   
         },
       ),
     );
   }
+}
+
+class ImageAvatar extends StatelessWidget {
+  final String fotoImage;
+  final String nameImage;
+
+  const ImageAvatar({
+    Key? key,
+    required this.fotoImage,
+    required this.nameImage,
+  }) : super(key: key);
+  
+  @override
+  Widget build(BuildContext context) {
+   return Stack(
+     children: [
+      Container(
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
+        width: 100,
+        height: 100,
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.yellow,
+         ),
+        ),
+             
+       Container(
+        height: 100,
+        width: 100,
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(4),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.black,
+          border: Border.all(
+             color: Colors.green,
+            width: 3,
+          ),
+          ),
+        child: CircleAvatar(
+          backgroundImage: AssetImage(fotoImage),
+         ),
+       )
+
+    ],
+    );
+
+   
+  }
+  
 }
