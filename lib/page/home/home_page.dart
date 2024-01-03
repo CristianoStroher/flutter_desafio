@@ -75,7 +75,7 @@ class HomePage extends StatelessWidget {
 
       
       body: ListView.builder(
-        itemCount: 1,
+        itemCount: 2,
         itemBuilder: (BuildContext context, int index) {
         return Column (
           children: [
