@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_desafio/page/home/image_avatar.dart';
 
@@ -37,11 +38,39 @@ class HomePage extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.chat_outlined),
+            icon: const Icon(CupertinoIcons.chat_bubble_text),
             iconSize: 30,
           )
         ],
         backgroundColor: Colors.black,
+      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.white,
+        backgroundColor: Colors.black,
+        type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: const [
+          BottomNavigationBarItem(
+            label: '',
+            icon: Icon(Icons.home, size: 30, color: Colors.white)),
+          BottomNavigationBarItem(
+            label: '',
+            icon: Icon(Icons.search, size: 30, color: Colors.white)),
+          BottomNavigationBarItem(
+            label: '',
+            icon: Icon(Icons.movie_creation_outlined, size: 30, color: Colors.white)),
+          BottomNavigationBarItem(
+            label: '',
+            icon: Icon(Icons.local_mall_outlined, size: 30, color: Colors.white)),
+          BottomNavigationBarItem(
+            label: '',
+            icon: CircleAvatar(
+              radius: 15,
+              backgroundImage: AssetImage('assets/images/foto_be.jpg'),
+            )),
+                  ],
       ),
 
       
@@ -100,7 +129,7 @@ class HomePage extends StatelessWidget {
                   fit: BoxFit.cover),
                   ),
                 Container(
-                  height: 50,
+                  height: 70,
                   color: Colors.black87,
                   child: Row(children: [
                     IconButton(onPressed: (){}, icon: const Icon(Icons.favorite_border),
@@ -109,19 +138,17 @@ class HomePage extends StatelessWidget {
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: const Icon(Icons.chat_bubble_outline),
+                      icon: const Icon(CupertinoIcons.chat_bubble),
                       iconSize: 30,
                       color: const Color.fromARGB(255, 220, 214, 214),
                     ),
-                    Transform.rotate(
-                      angle: -45 * (3.141592653589793 / 180),
-                      child: IconButton(
+                   IconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.send_outlined),
-                        iconSize: 28,
+                        icon: const Icon(CupertinoIcons.paperplane),
+                        iconSize: 30,
                         color: const Color.fromARGB(255, 220, 214, 214),
                       ),
-                    ),
+                   
                     const SizedBox(width: 215),
                       IconButton(
                       onPressed: () {},
@@ -132,6 +159,7 @@ class HomePage extends StatelessWidget {
                     ],
                   ),                
                 ),
+
                 const Text('1.463 curtidas', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                
               ],
