@@ -77,27 +77,11 @@ class HomePage extends StatelessWidget {
         ],
       ),
 
-      body: Column(
-        children: [
-          SizedBox(
-            height: 110,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 5,
-              itemBuilder: (BuildContext context, int index) {
-                return const ImageAvatar(fotoImage: 'assets/images/foto_be.jpg', nameImage: 'cristianostroher');
-              },
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 10, // Altere para o número total de postagens
-              itemBuilder: (BuildContext context, int index) {
-                return buildPost(index);
-              },
-            ),
-          ),
-        ],
+      body: ListView.builder(
+        itemCount: 10, // Altere para o número total de postagens
+        itemBuilder: (BuildContext context, int index) {
+          return buildPost(index);
+        },
       ),
     );
   }
@@ -106,9 +90,18 @@ class HomePage extends StatelessWidget {
   Widget buildPost(int index) {
     return Column(
       children: [
-        Container(
+        SizedBox(
+          height: 110,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 5,
+            itemBuilder: (BuildContext context, int index) {
+              return const ImageAvatar(fotoImage: 'assets/images/foto_be.jpg', nameImage: 'cristianostroher');
+            },
+          ),
+        ),
+        SizedBox(
           height: 400,
-          color: Colors.green,
           child: Image.asset('assets/images/foto_be.jpg', fit: BoxFit.cover),
         ),
         Container(
