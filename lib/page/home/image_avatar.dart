@@ -14,8 +14,7 @@ class ImageAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
    return Align(
      child: Stack(
-         children: [
-   
+         children: [   
           Container(
               height: 80,
               width: 80,

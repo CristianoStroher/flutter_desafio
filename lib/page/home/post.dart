@@ -1,16 +1,44 @@
-// widgets/post_widget.dart
-
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-class PostWidget {
-  static Widget buildPost(int index) {
+class Post extends StatelessWidget {
+  final String fotoImage;
+  final String nameImage;
+
+  const Post({
+    Key? key,
+    required this.fotoImage,
+    required this.nameImage,
+  }) : super(key: key);
+
+  Widget buildPost(int index) {
     return Column(
       children: [
         Container(
+          height: 70,
+          padding: const EdgeInsets.all(10),
+          color: Colors.black87,
+          child: const Row(
+            children: [
+               CircleAvatar(
+                backgroundImage: AssetImage('assets/images/foto_be.jpg'),
+              ),
+               SizedBox(width: 10),
+               Text(
+                'cristiano.stroher45',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 220, 214, 214),
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
           height: 400,
           color: Colors.green,
-          child: Image.asset('assets/images/foto_be.jpg', fit: BoxFit.cover),
+          child: Image.asset(fotoImage, fit: BoxFit.cover),
         ),
         Container(
           height: 70,
@@ -45,8 +73,16 @@ class PostWidget {
             ],
           ),
         ),
-        const Text('1.463 curtidas', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        const Text(
+          '1.463 curtidas',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
       ],
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return buildPost(0); // Um índice desejado
   }
 }
