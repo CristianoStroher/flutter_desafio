@@ -52,13 +52,13 @@ class ImageAvatar extends StatelessWidget {
             ),
             Positioned(
               top: 70,
-              left: 30,
+              left: 25,
               
               child: Container(
-                height: 17,
+                height: 18,
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(3),
                   gradient: const LinearGradient (
                     colors: [
                       Colors.purple,
@@ -68,9 +68,16 @@ class ImageAvatar extends StatelessWidget {
                     end: Alignment.bottomRight,
                   )                 ),
                 child: const Text('AO VIVO', style: TextStyle(
-                  fontSize: 8,
+                  fontSize: 9,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 220, 214, 214),
+                  color:  Color.fromARGB(255, 220, 214, 214),
+                  shadows:  [
+                    Shadow(
+                      offset: Offset(1, 2),
+                      blurRadius: 1,
+                      color: Color.fromARGB(255, 68, 67, 67)
+                    )
+                  ]
                 ),
                 ),
                            

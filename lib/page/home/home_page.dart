@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.chat_bubble_outline),
+            icon: const Icon(Icons.chat_outlined),
             iconSize: 30,
           )
         ],
@@ -45,28 +45,107 @@ class HomePage extends StatelessWidget {
       ),
 
       
-      body: Column(
-        children: [
-          SizedBox(
+      body: ListView.builder(
+        itemCount: 1,
+        itemBuilder: (BuildContext context, int index) {
+        return Column (
+          children: [
+            SizedBox(
             height: 110,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (BuildContext context, int index) {
                 return const ImageAvatar(fotoImage: 'assets/images/foto_be.jpg', nameImage: 'cristianostroher');
-             },
+                },
+              ),
             ),
-          ),
-          Container(
-            height: 400,
-            color: Colors.amber,
+            Column(
+              children: [
+                Container(
+                  height: 70,
+                  padding: const EdgeInsets.all(10),
+                  color: Colors.black87,
+                  child:  Row(
+                    children: [
+                      
+                      const CircleAvatar(
+                        backgroundImage: AssetImage('assets/images/foto_be.jpg'),
+                      ),
+                      const SizedBox(width: 10),
 
-            
-          )
-        ],
-      )
+                      const Text(
+                        'cristiano.stroher45',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 220, 214, 214),
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(width: 172),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.more_horiz_outlined),
+                          iconSize: 20,
+                          color: const Color.fromARGB(255, 220, 214, 214),
+                        ),
+                     
+
+                  ],
+                  ),                
+                ),
+                Container(
+                  height: 400,
+                  color: Colors.green,
+                  child: Image.asset('assets/images/foto_be.jpg',
+                  fit: BoxFit.cover),
+                  ),
+                Container(
+                  height: 50,
+                  color: Colors.black87,
+                  child: Row(children: [
+                    IconButton(onPressed: (){}, icon: const Icon(Icons.favorite_border),
+                    iconSize: 30,
+                    color: const Color.fromARGB(255, 220, 214, 214),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.chat_bubble_outline),
+                      iconSize: 30,
+                      color: const Color.fromARGB(255, 220, 214, 214),
+                    ),
+                    Transform.rotate(
+                      angle: -45 * (3.141592653589793 / 180),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.send_outlined),
+                        iconSize: 28,
+                        color: const Color.fromARGB(255, 220, 214, 214),
+                      ),
+                    ),
+                    const SizedBox(width: 215),
+                      IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.turned_in_not_outlined),
+                      iconSize: 30,
+                      color: const Color.fromARGB(255, 220, 214, 214),
+                    ),
+                    ],
+                  ),                
+                ),
+                const Text('1.463 curtidas', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                
-    );
+              ],
+            )
+
+          ],
+        );
+       
+      },
+      ),
+      );
+
+                  
+    
       
   }
 }
