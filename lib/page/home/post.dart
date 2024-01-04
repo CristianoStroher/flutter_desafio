@@ -54,7 +54,7 @@ class Post extends StatelessWidget {
               IconButton(
                 onPressed: () {},
                 icon:  const Icon(Icons.more_horiz),
-                iconSize: 30,
+                iconSize: 20,
                 color: const Color.fromARGB(255, 220, 214, 214),
               ),
             ],
