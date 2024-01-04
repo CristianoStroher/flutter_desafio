@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
             iconSize: 30,
           ),
           const SizedBox(
-            width: 5,
+            width: 2,
           ),
           IconButton(
             onPressed: () {},
@@ -94,7 +94,7 @@ class HomePage extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: 5, 
+              itemCount: 2, 
               itemBuilder: (BuildContext context, int index) {
                  return const Post(
                     fotoImage: 'assets/images/foto_be.jpg', 

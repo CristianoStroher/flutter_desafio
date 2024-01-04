@@ -11,20 +11,38 @@ class Post extends StatelessWidget {
     required this.nameImage,
   }) : super(key: key);
 
+   String quebrarLinhaLimite(String texto, int limite) {
+    if (texto.length <= limite) {
+      return texto;
+    } else {
+      int indiceQuebra = texto.lastIndexOf(' ', limite);
+      if (indiceQuebra == -1) {
+        return texto.substring(0, limite) + '\n' + quebrarLinhaLimite(texto.substring(limite), limite);
+      } else {
+        return texto.substring(0, indiceQuebra) + '\n' + quebrarLinhaLimite(texto.substring(indiceQuebra + 1), limite);
+      }
+    }
+  }
+
   Widget buildPost(int index) {
+
+    String descricao = 'GESTANTES, A 2ª DOSE É ESSENCIAL PARA A SUA PROTEÇÃO E DO BEBÊ. Garanta sua segurança e saúde realizando a segunda dose da vacina.';
+    final String descricaoFormatada = quebrarLinhaLimite(descricao, 35);
+    const String usuario = 'cristiano.stroher45';
+    
     return Column(
       children: [
         Container(
           height: 70,
           padding: const EdgeInsets.all(10),
           color: Colors.black87,
-          child: const Row(
+          child: Row(
             children: [
-               CircleAvatar(
+               const CircleAvatar(
                 backgroundImage: AssetImage('assets/images/foto_be.jpg'),
               ),
-               SizedBox(width: 10),
-               Text(
+               const SizedBox(width: 10),
+               const Text(
                 'cristiano.stroher45',
                 style: TextStyle(
                   color: Color.fromARGB(255, 220, 214, 214),
@@ -32,12 +50,18 @@ class Post extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const Spacer(),
+              IconButton(
+                onPressed: () {},
+                icon:  const Icon(Icons.more_horiz),
+                iconSize: 30,
+                color: const Color.fromARGB(255, 220, 214, 214),
+              ),
             ],
           ),
         ),
-        Container(
+        SizedBox(
           height: 400,
-          color: Colors.green,
           child: Image.asset(fotoImage, fit: BoxFit.cover),
         ),
         Container(
@@ -63,7 +87,7 @@ class Post extends StatelessWidget {
                 iconSize: 30,
                 color: const Color.fromARGB(255, 220, 214, 214),
               ),
-              const SizedBox(width: 215),
+              const Spacer(),
               IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.turned_in_not_outlined),
@@ -73,10 +97,37 @@ class Post extends StatelessWidget {
             ],
           ),
         ),
-        const Text(
-          '1.463 curtidas',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        Container(
+          color: Colors.black,
+          padding: const EdgeInsets.all(10),
+          child: const Row(
+            children: [
+               Text(
+                '1.463 curtidas',
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
+         Container(
+           padding: const EdgeInsets.all(10),
+           child: Row(
+            
+            children: [
+                Text(
+                  '$usuario\u200B   $descricaoFormatada',
+                    style: const TextStyle(
+                      color: Color.fromARGB(255, 220, 214, 214),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+              ),
+                                 
+            ],
+                 ),
+         )
       ],
     );
   }
@@ -85,4 +136,6 @@ class Post extends StatelessWidget {
   Widget build(BuildContext context) {
     return buildPost(0); // Um índice desejado
   }
+
+  
 }
